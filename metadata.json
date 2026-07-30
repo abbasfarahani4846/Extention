@@ -1,0 +1,6 @@
+{
+  "name": "Chrome AI Companion Extension",
+  "description": "Chrome Extension with multi-provider AI support (OpenRouter, NVIDIA, Gemini), right sidepanel chat, and YouTube AI subtitle auto-translator overlay.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
