@@ -1193,28 +1193,4 @@ try {
   console.error("Could not create popup.html:", e);
 }
 
-async function buildZip() {
-  const zip = new JSZip();
-  
-  function addFilesFromDir(dirPath, zipFolder) {
-    const files = fs.readdirSync(dirPath);
-    for (const file of files) {
-      if (file === 'extension.zip') continue;
-      const fullPath = path.join(dirPath, file);
-      if (fs.statSync(fullPath).isDirectory()) {
-        addFilesFromDir(fullPath, zipFolder.folder(file));
-      } else {
-        zipFolder.file(file, fs.readFileSync(fullPath));
-      }
-    }
-  }
-
-  addFilesFromDir(distDir, zip);
-  
-  const content = await zip.generateAsync({ type: "nodebuffer" });
-  if (!fs.existsSync(path.join(process.cwd(), 'public'))) fs.mkdirSync(path.join(process.cwd(), 'public'));
-  fs.writeFileSync(path.join(process.cwd(), 'public', 'extension.zip'), content);
-  console.log('Zip built and saved to public/extension.zip!');
-}
-
-buildZip();
+// Zip generation removed
